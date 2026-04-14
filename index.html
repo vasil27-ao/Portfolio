@@ -4,213 +4,751 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Евгения Васильченко — Project Manager & AI Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --ink:       #1a1714;
+      --ink-mid:   #4a4540;
+      --ink-light: #8a8480;
+      --paper:     #f7f5f2;
+      --paper-2:   #efecea;
+      --accent:    #8b1a1a;
+      --accent-2:  #c0392b;
+      --border:    #d8d4cf;
+      --mono:      'IBM Plex Mono', monospace;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6; color: #1a1a1a; background: #f8f9fa;
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
     }
-    /* Header */
+
+    /* ─── HEADER ─── */
     header {
-      background: linear-gradient(135deg, #0f2d4a 0%, #1a3f5c 100%);
-      color: white; padding: 80px 20px; text-align: center;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 80px 40px 72px;
+      position: relative;
+      overflow: hidden;
     }
-    header h1 { font-size: 48px; margin-bottom: 10px; font-weight: 600; }
-    header .subtitle { font-size: 22px; color: #a8d5ff; margin-bottom: 20px; font-weight: 300; }
-    header p { font-size: 16px; color: #d0e0f0; max-width: 600px; margin: 0 auto; }
-    /* Container */
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-    /* Sections */
-    section { padding: 60px 20px; }
-    section h2 { font-size: 32px; color: #0f2d4a; margin-bottom: 40px; text-align: center; font-weight: 600; }
-    /* Projects section */
-    .projects { background: #f8f9fa; }
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-    .project-card {
-      background: white; border-radius: 12px; padding: 30px;
-      border-left: 5px solid #0f2d4a; transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
     }
-    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-    .project-card h3 { font-size: 22px; color: #0f2d4a; margin-bottom: 10px; font-weight: 600; }
-    .project-card .subtitle { color: #0066cc; font-size: 14px; font-weight: 500; margin-bottom: 15px; display: block; }
-    .project-card p { color: #555; margin-bottom: 15px; font-size: 15px; line-height: 1.7; }
-    .project-goal {
-      background: #f0fff4; border-left: 3px solid #22a06b;
-      padding: 10px 15px; margin: 0 0 18px 0; border-radius: 4px;
-      font-size: 14px; color: #1a4731;
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
     }
-    .project-goal strong { color: #1a4731; }
-    .project-features {
-      background: #f0f5ff; border-left: 3px solid #0066cc;
-      padding: 12px 15px; margin: 20px 0; border-radius: 4px;
-      font-size: 14px; color: #333;
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
-    .project-features strong { color: #0f2d4a; }
-    .project-links { display: flex; gap: 12px; margin-top: 20px; }
+
+    .header-role {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+    }
+
+    .header-desc {
+      font-size: 16px;
+      color: #b0a8a0;
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #6a6460;
+      line-height: 2;
+      white-space: nowrap;
+    }
+
+    /* ─── NARRATIVE INTRO ─── */
+    .narrative {
+      background: var(--paper-2);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 40px;
+    }
+
+    .narrative-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .narrative-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding-top: 4px;
+    }
+
+    .narrative-text {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+    }
+
+    .narrative-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 56px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .section-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── TIMELINE ─── */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 32px;
+      margin-bottom: 56px;
+      position: relative;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* connector arrow between projects */
+    .project-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 22px;
+      bottom: -30px;
+      width: 13px;
+      height: 13px;
+      border-right: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+      transform: rotate(45deg);
+    }
+
+    .step-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding-top: 4px;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-item.accent .step-number {
+      background: var(--accent);
+    }
+
+    .project-body {
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--ink);
+      padding: 32px;
+      transition: box-shadow 0.25s;
+    }
+
+    .project-item.accent .project-body {
+      border-top-color: var(--accent);
+    }
+
+    .project-body:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .project-titles {}
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+
+    .tech-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      color: var(--ink-mid);
+      letter-spacing: 0.05em;
+    }
+
+    /* Two-column layout inside card */
+    .project-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .col-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    .col-text {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.65;
+    }
+
+    .col-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 0;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+      color: var(--ink-mid);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--paper-2);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+
+    /* Outcome highlight */
+    .outcome-row {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: var(--paper-2);
+      border-left: 3px solid var(--accent);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .outcome-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .outcome-text {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Links */
+    .project-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; padding: 10px 16px;
-      border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 14px;
-      transition: all 0.3s; cursor: pointer; border: none;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      padding: 9px 18px;
+      border: 1px solid;
+      transition: all 0.2s;
+      display: inline-block;
     }
-    .btn-primary { background: #0066cc; color: white; }
-    .btn-primary:hover { background: #0052a3; }
-    .btn-secondary { background: #e3f0ff; color: #0066cc; border: 1px solid #0066cc; }
-    .btn-secondary:hover { background: #cce5ff; }
-    .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-    .tech { background: #f0f5ff; color: #0066cc; padding: 5px 10px; border-radius: 4px; font-size: 13px; font-weight: 500; }
-    /* Contact section */
-    .contact { background: white; text-align: center; }
-    .contact-content { max-width: 600px; margin: 0 auto; }
-    .contact-content p { font-size: 18px; color: #555; margin-bottom: 30px; }
-    .contact-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .btn-dark:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+    }
+
+    /* ─── NARRATIVE CONNECTOR ─── */
+    .connector-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+      padding: 0 0 0 88px;
+      margin: -36px 0 36px;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 64px 40px;
+    }
+
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .contact-sub {
+      font-size: 14px;
+      color: #8a8480;
+      font-weight: 300;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
     .contact-link {
-      display: inline-flex; align-items: center; padding: 12px 20px;
-      background: #f0f5ff; color: #0066cc; text-decoration: none;
-      border-radius: 6px; transition: all 0.3s; font-weight: 500;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #b0a8a0;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
     }
-    .contact-link:hover { background: #0066cc; color: white; }
-    .contact-link span { margin-left: 8px; }
-    /* Footer */
-    footer { background: #0f2d4a; color: #a8d5ff; text-align: center; padding: 30px 20px; font-size: 14px; }
-    /* Responsive */
+
+    .contact-link:hover {
+      color: var(--paper);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0e0d0b;
+      color: #4a4540;
+      text-align: center;
+      padding: 24px 20px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
+      header { padding: 52px 24px 48px; }
+      .header-inner { grid-template-columns: 1fr; }
+      .header-meta { text-align: left; }
       header h1 { font-size: 36px; }
-      header .subtitle { font-size: 18px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      section { padding: 40px 20px; }
-      section h2 { font-size: 24px; }
+      .narrative { padding: 36px 24px; }
+      .narrative-inner { grid-template-columns: 1fr; gap: 12px; }
+      .projects-section { padding: 48px 24px; }
+      .project-item { grid-template-columns: 44px 1fr; gap: 20px; }
+      .timeline::before { left: 21px; }
+      .project-item::after { left: 15px !important; }
+      .project-columns { grid-template-columns: 1fr; }
+      .project-top { flex-direction: column; }
+      .project-tech { justify-content: flex-start; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .contact-links { align-items: flex-start; }
+      .connector-text { padding-left: 64px; }
     }
-    /* Animation */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .project-card { animation: fadeInUp 0.6s ease-out; }
+
+    .project-item {
+      animation: fadeUp 0.5s ease-out both;
+    }
+    .project-item:nth-child(1) { animation-delay: 0.1s; }
+    .project-item:nth-child(2) { animation-delay: 0.25s; }
+    .project-item:nth-child(3) { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
 
 <!-- Header -->
 <header>
-  <h1>Евгения Васильченко</h1>
-  <div class="subtitle">Project Manager</div>
-  <p>Портфолио проектов по управлению процессами и автоматизации.</p>
+  <div class="header-inner">
+    <div>
+      <div class="header-role">Project Manager &amp; AI Automation</div>
+      <h1>Евгения<br>Васильченко</h1>
+      <p class="header-desc">
+        Строю инструменты автоматизации и документирую процессы так,
+        чтобы их можно было воспроизвести и масштабировать.
+      </p>
+    </div>
+    <div class="header-meta">
+      Астана, Казахстан<br>
+      Python · Claude API · Trello API<br>
+      Telegram Bot Development<br>
+      AI-assisted Project Management
+    </div>
+  </div>
 </header>
 
+<!-- Narrative intro -->
+<div class="narrative">
+  <div class="narrative-inner">
+    <div class="narrative-label">Об этом портфолио</div>
+    <p class="narrative-text">
+      Три проекта здесь связаны между собой: каждый следующий вырос из опыта предыдущего.
+      Сначала — решение конкретной задачи инструментом автоматизации.
+      Затем — документирование процесса разработки как PM-кейса.
+      В итоге — методология, которая позволяет повторять этот путь быстрее.
+    </p>
+  </div>
+</div>
+
 <!-- Projects -->
-<section class="projects">
-  <div class="container">
-    <h2>Проекты</h2>
-    <div class="projects-grid">
+<section class="projects-section">
+  <div class="section-header">
+    <h2 class="section-title">Проекты</h2>
+    <span class="section-note">3 проекта · 2025–2026</span>
+  </div>
 
-      <!-- Project 1: Telegram Bot -->
-      <div class="project-card">
-        <h3>Telegram Job Vacancy Filter Bot</h3>
-        <span class="subtitle">Автоматический мониторинг вакансий</span>
-        <div class="project-goal">
-          <strong>🎯 Цель:</strong> Сократить время ежедневного поиска вакансий с нескольких часов до нескольких минут за счёт автоматической фильтрации по нужным критериям.
+  <div class="timeline">
+
+    <!-- Project 1: Claude × Trello -->
+    <div class="project-item accent">
+      <div class="step-marker">
+        <div class="step-number">1</div>
+      </div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-titles">
+            <div class="project-tag">Интеграция · Claude API · Trello API</div>
+            <div class="project-name">Claude × Trello Integration</div>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Claude API</span>
+            <span class="tech-tag">Trello API</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
         </div>
-        <p>Бот парсит и фильтрует вакансии из целевых Telegram-каналов с использованием расширенной системы фильтрации.</p>
-        <div class="project-features">
-          <strong>Основные функции:</strong><br>
-          ✓ Парсинг сообщений из Telegram-каналов<br>
-          ✓ Фильтрация по грейду, опыту и зарплате<br>
-          ✓ Управление удалённостью<br>
-          ✓ Статистика просмотров и находок<br>
-          ✓ Кнопки "не интересно" и "в избранное"
+
+        <div class="project-columns">
+          <div>
+            <div class="col-label">Задача</div>
+            <p class="col-text">
+              Подготовка проектной доски Trello вручную занимает 2–3 часа:
+              создание колонок, карточек, дедлайнов, ярлыков.
+              Задача — автоматизировать этот процесс через текстовое описание проекта,
+              чтобы менеджер мог разворачивать структуру за минуты, а не часы.
+            </p>
+          </div>
+          <div>
+            <div class="col-label">Реализация</div>
+            <ul class="feature-list">
+              <li>Создание досок, колонок и карточек по текстовому запросу</li>
+              <li>Добавление описаний, дедлайнов и ярлыков через Claude API</li>
+              <li>Распределение задач по приоритетам и этапам</li>
+              <li>Готовая доска разработки бота-парсера — пример вывода интеграции</li>
+            </ul>
+          </div>
         </div>
-        <div class="tech-stack">
-          <span class="tech">Python</span>
-          <span class="tech">Telethon</span>
-          <span class="tech">Automation</span>
+
+        <div class="outcome-row">
+          <span class="outcome-label">Результат</span>
+          <span class="outcome-text">
+            Время подготовки проектной доски сокращено с 2–3 часов до 20 минут.
+            Интеграция применена для планирования следующего проекта.
+          </span>
         </div>
+
         <div class="project-links">
-          <a href="https://t.me/myjobs_dzhen_bot" class="btn btn-primary">Открыть бота</a>
+          <a href="https://trello.com/invite/b/69bbdd1be8c7bd77db315402/ATTI0f8e0602ceea1b87db0c1d344a7bac26F675D992/telegram-job-vacancy-bot-development-process" class="btn btn-dark">Пример доски</a>
         </div>
       </div>
-
-      <!-- Project 2: Claude Trello Integration -->
-      <div class="project-card">
-        <h3>Claude × Trello Integration</h3>
-        <span class="subtitle">Автоматизация управления проектами</span>
-        <div class="project-goal">
-          <strong>🎯 Цель:</strong> Убрать рутину из подготовки проектных досок — менеджер описывает задачу текстом, AI разворачивает структуру Trello за 20 минут вместо 2–3 часов.
-        </div>
-        <p>Интеграция Claude API с Trello для создания и управления проектными досками на основе текстовых описаний. Автоматизирует 80% рутинных операций.</p>
-        <div class="project-features">
-          <strong>Функционал:</strong><br>
-          ✓ Создание досок и колонок по запросу<br>
-          ✓ Добавление карточек с описаниями<br>
-          ✓ Управление дедлайнами и ярлыками<br>
-          ✓ Распределение нагрузки и приоритетов<br>
-          ✓ Сокращение времени подготовки с 2–3 часов до 20 минут
-        </div>
-        <div class="tech-stack">
-          <span class="tech">Claude API</span>
-          <span class="tech">Trello API</span>
-          <span class="tech">Node.js</span>
-        </div>
-        <div class="project-links">
-          <a href="https://trello.com/invite/b/69bbdd1be8c7bd77db315402/ATTI0f8e0602ceea1b87db0c1d344a7bac26F675D992/telegram-job-vacancy-bot-development-process" class="btn btn-primary">Пример доски</a>
-        </div>
-      </div>
-
-      <!-- Project 3: Project Development Template -->
-      <div class="project-card">
-        <h3>Project Development Template</h3>
-        <span class="subtitle">Шаблонная система для запуска IT-проектов с AI</span>
-        <div class="project-goal">
-          <strong>🎯 Цель:</strong> Передать AI-ассистенту полный контекст проекта с первой же сессии — чтобы он сразу писал под конкретные роли, архитектуру и бизнес-логику, а не угадывал их.
-        </div>
-        <p>Система из трёх документов: шаблон-опросник для PM (docx), контекстный файл CLAUDE.md для разработчика и пошаговая инструкция по заполнению. Покрывает большинство веб-продуктов без доработки.</p>
-        <div class="project-features">
-          <strong>Что входит:</strong><br>
-          ✓ project_template.docx — структура требований для PM<br>
-          ✓ CLAUDE.md — контекст проекта для AI-ассистента<br>
-          ✓ Инструкция: что заполнять и на каком этапе<br>
-          ✓ Staged-подход: файл растёт вместе с проектом<br>
-          ✓ Адаптируется под мобайл, микросервисы и ML
-        </div>
-        <div class="tech-stack">
-          <span class="tech">Markdown</span>
-          <span class="tech">CLAUDE.md</span>
-          <span class="tech">Claude Code</span>
-          <span class="tech">.docx</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/vasil27-ao/project-dev-template" class="btn btn-primary">GitHub</a>
-        </div>
-      </div>
-
     </div>
+
+    <p class="connector-text">Инструмент планирования готов — следующий шаг: применить его в реальном проекте</p>
+
+    <!-- Project 2: Vacancy Bot -->
+    <div class="project-item">
+      <div class="step-marker">
+        <div class="step-number">2</div>
+      </div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-titles">
+            <div class="project-tag">Автоматизация · Python · Telethon</div>
+            <div class="project-name">Telegram Job Vacancy Filter Bot</div>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Telethon</span>
+            <span class="tech-tag">python-telegram-bot</span>
+          </div>
+        </div>
+
+        <div class="project-columns">
+          <div>
+            <div class="col-label">Задача</div>
+            <p class="col-text">
+              Ежедневный мониторинг вакансий в Telegram-каналах занимал несколько часов
+              ручного просмотра. Нужен был инструмент, который отбирает релевантное
+              автоматически — без участия пользователя.
+              <br><br>
+              Проект спланирован и задокументирован с помощью Claude × Trello Integration:
+              доска разработки создана до начала работ и использовалась на протяжении
+              всего цикла.
+            </p>
+          </div>
+          <div>
+            <div class="col-label">Реализация</div>
+            <ul class="feature-list">
+              <li>Парсинг сообщений из Telegram-каналов в реальном времени</li>
+              <li>Фильтрация по грейду, опыту, зарплате и формату работы</li>
+              <li>Кнопки управления: «в избранное» и «не интересно»</li>
+              <li>Статистика просмотров и найденных вакансий</li>
+              <li>Деплой с автозапуском через Windows Task Scheduler</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <span class="outcome-label">Результат</span>
+          <span class="outcome-text">
+            Бот запущен и работает: <strong>@myjobs_dzhen_bot</strong>.
+            Время ежедневного поиска сокращено с нескольких часов до нескольких минут.
+          </span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://t.me/myjobs_dzhen_bot" class="btn btn-dark">Открыть бота</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="connector-text">Опыт двух проектов показал повторяющийся паттерн — следующий шаг: оформить его в систему</p>
+
+    <!-- Project 3: Template -->
+    <div class="project-item">
+      <div class="step-marker">
+        <div class="step-number">3</div>
+      </div>
+      <div class="project-body">
+        <div class="project-top">
+          <div class="project-titles">
+            <div class="project-tag">Методология · AI-assisted Development</div>
+            <div class="project-name">Project Development Template</div>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Markdown</span>
+            <span class="tech-tag">CLAUDE.md</span>
+            <span class="tech-tag">Claude Code</span>
+            <span class="tech-tag">.docx</span>
+          </div>
+        </div>
+
+        <div class="project-columns">
+          <div>
+            <div class="col-label">Задача</div>
+            <p class="col-text">
+              При работе с AI-ассистентом каждая новая сессия начинается без контекста:
+              модель не знает архитектуру, роли и бизнес-логику проекта.
+              Нужна система, которая передаёт этот контекст структурированно —
+              один раз, с первой же сессии.
+              <br><br>
+              Шаблон обобщает подход, опробованный на двух предыдущих проектах,
+              и решает три задачи: быстрый старт с AI-ассистентом, передача проекта
+              новому разработчику без потери контекста, и единый стандарт документации
+              внутри команды.
+            </p>
+          </div>
+          <div>
+            <div class="col-label">Что входит</div>
+            <ul class="feature-list">
+              <li>CLAUDE.md — контекстный файл проекта для AI-ассистента</li>
+              <li>project_template.docx — структура требований для PM</li>
+              <li>Инструкция: что заполнять и на каком этапе разработки</li>
+              <li>Staged-подход: файл растёт вместе с проектом</li>
+              <li>Адаптируется под мобайл, микросервисы, ML-продукты</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="outcome-row">
+          <span class="outcome-label">Результат</span>
+          <span class="outcome-text">
+            Шаблон проверен на двух проектах и опубликован как открытый инструмент
+            для менеджеров и разработчиков, работающих с AI-ассистентами.
+          </span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/vasil27-ao/project-dev-template" class="btn btn-dark">GitHub</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- Contact -->
-<section class="contact">
-  <div class="container">
-    <h2>Контакты</h2>
-    <div class="contact-content">
-      <div class="contact-links">
-        <a href="mailto:vasilcenkoe127@gmail.com" class="contact-link">
-          ✉️ <span>Email</span>
-        </a>
-        <a href="https://t.me/dzhenkn" class="contact-link">
-          ✈️ <span>Telegram</span>
-        </a>
-        <a href="tel:+77074604858" class="contact-link">
-          ☎️ <span>Телефон</span>
-        </a>
-      </div>
+<div class="contact-section">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-title">Связаться</div>
+      <p class="contact-sub">Открыта к позициям проектного менеджера и задачам в области автоматизации</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:vasilcenkoe127@gmail.com" class="contact-link">vasilcenkoe127@gmail.com</a>
+      <a href="https://t.me/dzhenkn" class="contact-link">Telegram: @dzhenkn</a>
+      <a href="tel:+77074604858" class="contact-link">+7 707 460 48 58</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- Footer -->
 <footer>
-  <p>© 2026 Евгения Васильченко. Портфолио проектов по управлению процессами и автоматизации.</p>
+  &copy; 2026 Евгения Васильченко
 </footer>
 
 </body>
