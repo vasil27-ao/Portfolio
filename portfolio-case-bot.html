@@ -228,6 +228,15 @@
     font-weight: 500;
   }
 
+  code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--paper-2);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    color: var(--accent);
+  }
+
   .result-block {
     background: var(--paper-2);
     border-left: 3px solid var(--accent);
@@ -366,7 +375,7 @@
     <div class="section-label">05 / Риски и ограничения</div>
     <h2>С чем столкнулась в процессе</h2>
     <ol class="steps">
-      <li><span><strong>Авторизация Telethon.</strong> Telegram не всегда присылал код подтверждения — пришлось разбираться с задержками и повторными попытками. Решила через повторную авторизацию с паузами между попытками.</span></li>
+      <li><span><strong>Авторизация Telethon.</strong> Telegram не присылал код подтверждения при первом запуске. Решила добавлением параметров <code>lang_code="ru"</code> и <code>system_lang_code="ru-RU"</code> в TelegramClient и удалением старого session-файла — после этого авторизация прошла успешно.</span></li>
       <li><span><strong>Размытые ключевые слова.</strong> Фильтр по опыту работает нестабильно: каждая вакансия формулирует требования по-своему («опыт от 1 года», «1+ лет», «junior»). Это известное ограничение — в будущем можно решить через расширенный словарь синонимов или ML-фильтрацию.</span></li>
       <li><span><strong>Безопасность токенов.</strong> API-токены и чувствительные данные вынесены в отдельный конфигурационный файл, не хранятся в основном коде.</span></li>
     </ol>
